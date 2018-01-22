@@ -10,9 +10,7 @@ int max (int a, int b) {
     return (a > b) ? a : b;
 }
 
-
 ArbitraryInt karatsuba_algorithm (const ArbitraryInt & a, const ArbitraryInt & b) {
-    
     if (a.number_length() < 2 || b.number_length() < 2) {
         return ArbitraryInt(a.to_integer() * b.to_integer());
     }
@@ -33,7 +31,6 @@ ArbitraryInt karatsuba_algorithm (const ArbitraryInt & a, const ArbitraryInt & b
     return shift(z2, 2 * half) + shift(z1 - z2 - z0, half) + z0;
 }
 
-
 int main () {
     string a, b;
     cout << "Enter two numbers:" << endl;
@@ -42,3 +39,4 @@ int main () {
                                     ArbitraryInt(b)).repr() << endl;
     }
 }
+

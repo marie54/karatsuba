@@ -7,7 +7,7 @@
 
 using namespace std;
 
-typedef unsigned char byte;
+typedef char byte;
 
 enum OperandComparation {
     EQUAL = 0,
@@ -101,7 +101,7 @@ public:
     }
     
     void negate () {
-        is_negative = false;
+        is_negative = !is_negative;
     }
     
     ArbitraryInt abs () const {
@@ -226,7 +226,7 @@ ArbitraryInt operator+ (const ArbitraryInt & lhs, const ArbitraryInt & rhs) {
         return difference_proxy(lhs, rhs.abs());
     
     if (lhs.is_neg() && !rhs.is_neg()) {
-        auto temp = difference_proxy(rhs, lhs);
+        auto temp = difference_proxy(rhs, lhs.abs());
         temp.negate();
         return temp;
     }
