@@ -200,7 +200,6 @@ ArbitraryInt operator+ (const ArbitraryInt & lhs, const ArbitraryInt & rhs) {
     
     if (lhs.is_neg() && !rhs.is_neg()) {
         auto temp = difference_proxy(rhs, lhs.abs());
-        temp.negate();
         return temp;
     }
     
